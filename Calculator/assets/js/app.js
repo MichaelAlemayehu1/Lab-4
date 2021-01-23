@@ -39,7 +39,21 @@ function multiply(){
 }
 
 // division
+function divide(){
+    
+    numerator = prompt("input dividend ");
+    denominator = prompt("input divisor ");
 
+    if(denominator==0){
+        result=console.log("please enter a divisor different from 0");
+        
+    } else
+    {
+        result = Number((numerator/denominator).toFixed(3));
+        
+        console.log("the result is " + "" + result)
+    }
+}
 
 // maxandmin
 function maxMin(){
