@@ -3,7 +3,10 @@ let profile = {
     lastName : "",
     limit : "10000",
     balance : "5000",
-    canWithdraw : false,
+    receiver1: "1234",
+    receiver2: "5678",
+
+    
     checkBalance : function() {console.log("Your current Account Balance is: " + this.balance)},
     deposit: function() {
       let Amount = prompt("Input amount to deposit to account: ");
@@ -27,49 +30,35 @@ let profile = {
       }
     },
     
-    transfer : function() {},
+    transfer : function() {
+      var selectUser = prompt("please select user:\n 1.Receiver acc no 1234 \n2.Receiver acc no 5678 ");
+
+      switch(selectUser){
+        case "1" :
+          let transferAmount = prompt("Input amount to transfer: ");
+          if(parseInt(this.balance)>parseInt(transferAmount)){
+          this.balance = parseInt(this.balance) - parseInt(transferAmount);
+          console.log("Amount: "+ transferAmount + " has been transferred to account number " + this.receiver1 + "'s account");
+          console.log("You remain with "+ this.balance);}
+          else{console.log("Insufficient Funds! " + "you only have "+ this.balance)};
+          break;
+          case "2" :
+            let transferAmount2 = prompt("Input amount to transfer: ");
+            if(parseInt(this.balance)>parseInt(transferAmount2)){
+              this.balance = parseInt(this.balance) - parseInt(transferAmount2);
+              console.log("Amount: "+ transferAmount2 + " has been transferred to account number " + this.receiver2 + "'s account");
+              console.log("You remain with "+ this.balance);
+            }
+              
+              else{console.log("Insufficient Funds! "+ "you only have " + this.balance)};
+              
+            break;
+      }
+
+    }
 
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 (function init() {
     
